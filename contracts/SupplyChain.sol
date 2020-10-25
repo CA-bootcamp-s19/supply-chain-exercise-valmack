@@ -117,7 +117,7 @@ contract SupplyChain {
   function addItem(string memory _name, uint _price) public returns(bool){
     emit LogForSale(skuCount);
 
-    items[skuCount] = Item({name: _name, sku: skuCount, price: _price, state: State.ForSale, seller: msg.sender, buyer: address(0)});
+    items[skuCount] = Item({name: _name, sku: skuCount, price: _price, state: uint(State.ForSale), seller: msg.sender, buyer: address(0)});
     skuCount = skuCount + 1;
 
 
