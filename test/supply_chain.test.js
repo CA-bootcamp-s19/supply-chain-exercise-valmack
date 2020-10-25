@@ -76,7 +76,7 @@ contract('SupplyChain', function(accounts) {
         await catchRevert(instance.buyItem(0, {from: bob, value: 1}))
     })
 
-    it("should emit LogSold event when and item is purchased", async()=>{
+    it("should emit LogSold event when an item is purchased", async()=>{
         var eventEmitted = false
 
         await instance.addItem(name, price, {from: alice})
