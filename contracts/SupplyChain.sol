@@ -47,7 +47,7 @@ contract SupplyChain {
     Prefix each event with "Log" for clarity, so the forSale event will be called "LogForSale"
     Each event should accept one argument, the sku */
 
-  event LogForSale(uint sku);
+  event LogForSale(uint256 skuCount);
   event LogSold(uint sku);
   event LogShipped(uint sku);
   event LogReceived(uint sku);
@@ -115,9 +115,11 @@ contract SupplyChain {
   }
 
   function addItem(string memory _name, uint _price) public returns(bool){
-    emit LogForSale(skuCount);
     items[skuCount] = Item({name: _name, sku: skuCount, price: _price, state: State.ForSale, seller: msg.sender, buyer: address(0)});
     skuCount = skuCount + 1;
+
+    emit LogForSale(skuCount);
+
     return true;
   }
 
